@@ -2,3 +2,5 @@ node_modules
 dist
 **/*.d.ts
 **/*.js
+
+.DS_Store
