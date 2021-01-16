@@ -2,7 +2,7 @@
 
 import * as path from 'path'
 import * as fs from 'fs'
-import { ENV_FILE_NAME } from './common'
+import { ENV_FILE_NAME, ENV_WINDOW_PROPERTY } from './common'
 
 const command = process.argv[2]
 
@@ -19,7 +19,7 @@ function initCommand() {
     }
 
     const filePath = path.join(publicPath, ENV_FILE_NAME)
-    const fileContent = `module.exports = ${JSON.stringify(publicEnv)}`
+    const fileContent = `window["${ENV_WINDOW_PROPERTY}"]=${JSON.stringify(publicEnv)}`
     fs.writeFileSync(filePath, fileContent, { encoding: "utf8"})
 }
 
