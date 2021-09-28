@@ -19,7 +19,8 @@ function initCommand() {
     }
 
     const filePath = path.join(publicPath, ENV_FILE_NAME)
-    const fileContent = `window["${ENV_WINDOW_PROPERTY}"]=${JSON.stringify(publicEnv)}`
+    const fileContent = `// eslint-disable-next-line prettier/prettier
+window["${ENV_WINDOW_PROPERTY}"]=${JSON.stringify(publicEnv)}`
     fs.writeFileSync(filePath, fileContent, { encoding: "utf8"})
 }
 
